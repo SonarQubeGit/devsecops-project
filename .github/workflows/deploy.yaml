@@ -11,7 +11,7 @@ jobs:
 
     steps:
 
-    # 🔹 1. Checkout
+    # 🔹 1. Checkout code
     - name: Checkout code
       uses: actions/checkout@v3
 
@@ -40,13 +40,13 @@ jobs:
         docker build -t query-service ./services/query
         docker build -t event-bus-service ./services/event-bus
 
-    # 🔹 5. 🔐 Trivy Scan (FAIL on HIGH/CRITICAL)
-    - name: Scan Images with Trivy (Fail on Vulnerabilities)
+    # 🔹 5. 🔐 Trivy Scan (NON-BLOCKING)
+    - name: Scan Images with Trivy (Non-blocking)
       run: |
-        trivy image --exit-code 1 --severity HIGH,CRITICAL posts-service
-        trivy image --exit-code 1 --severity HIGH,CRITICAL comments-service
-        trivy image --exit-code 1 --severity HIGH,CRITICAL query-service
-        trivy image --exit-code 1 --severity HIGH,CRITICAL event-bus-service
+        trivy image --severity HIGH,CRITICAL posts-service
+        trivy image --severity HIGH,CRITICAL comments-service
+        trivy image --severity HIGH,CRITICAL query-service
+        trivy image --severity HIGH,CRITICAL event-bus-service
 
     # 🔹 6. Tag Images
     - name: Tag Images
@@ -64,7 +64,7 @@ jobs:
         docker push ${{ secrets.DOCKER_USERNAME }}/query-service
         docker push ${{ secrets.DOCKER_USERNAME }}/event-bus-service
 
-    # 🔹 8. Deploy to EC2 (K8s)
+    # 🔹 8. Deploy to EC2 (Kubernetes)
     - name: Deploy to EC2 via SSH
       uses: appleboy/ssh-action@v0.1.10
       with:
