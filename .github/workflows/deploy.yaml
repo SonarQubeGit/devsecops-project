@@ -32,7 +32,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y trivy
 
-    # 🔹 4. Build Images (LOCAL)
+    # 🔹 4. Build Docker Images
     - name: Build Docker Images
       run: |
         docker build -t posts-service ./services/posts
@@ -40,13 +40,13 @@ jobs:
         docker build -t query-service ./services/query
         docker build -t event-bus-service ./services/event-bus
 
-    # 🔹 5. Scan Images (Trivy)
-    - name: Scan Images with Trivy
+    # 🔹 5. 🔐 Trivy Scan (FAIL on HIGH/CRITICAL)
+    - name: Scan Images with Trivy (Fail on Vulnerabilities)
       run: |
-        trivy image posts-service
-        trivy image comments-service
-        trivy image query-service
-        trivy image event-bus-service
+        trivy image --exit-code 1 --severity HIGH,CRITICAL posts-service
+        trivy image --exit-code 1 --severity HIGH,CRITICAL comments-service
+        trivy image --exit-code 1 --severity HIGH,CRITICAL query-service
+        trivy image --exit-code 1 --severity HIGH,CRITICAL event-bus-service
 
     # 🔹 6. Tag Images
     - name: Tag Images
