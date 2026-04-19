@@ -57,6 +57,10 @@ Developer → GitHub → GitHub Actions Pipeline
 
 * Prometheus
 * Grafana
+<img width="1520" height="841" alt="Screenshot 2026-04-18 184911" src="https://github.com/user-attachments/assets/de6c2246-f9a3-47b0-89d8-3091604f73a8" />
+<img width="1519" height="756" alt="Screenshot 2026-04-18 184854" src="https://github.com/user-attachments/assets/b79b7716-4c6b-472d-8385-013fdb4a15ad" />
+
+
 
 ---
 
