@@ -91,6 +91,9 @@ continue-on-error: true
 * Pipeline continues even if Quality Gate fails
 * Ensures visibility without blocking deployment
 
+<img width="1067" height="583" alt="image" src="https://github.com/user-attachments/assets/c955cc5a-52eb-4af5-9e53-96c3a77bbe67" />
+
+
 **Production Note:**
 In real environments, Quality Gates should block deployment on failure.
 
@@ -127,6 +130,9 @@ soft_fail: true
   * Misconfigurations
   * Security risks
 * Runs in non-blocking mode for demonstration
+<img width="1518" height="834" alt="image" src="https://github.com/user-attachments/assets/c4660f0a-9203-4d67-abbd-446a11a78832" />
+
+
 
 **Production Note:**
 Should be enforced strictly to prevent insecure infrastructure deployment.
@@ -138,6 +144,7 @@ Should be enforced strictly to prevent insecure infrastructure deployment.
 * ✅ CI/CD pipeline executes successfully
 * ⚠️ Security vulnerabilities (if any) are reported but not blocked
 
+<img width="1042" height="712" alt="image" src="https://github.com/user-attachments/assets/265de685-d989-4023-a630-63bf052de22f" />
 
 ---
 
