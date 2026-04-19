@@ -20,9 +20,9 @@ Developer → GitHub → GitHub Actions Pipeline
                         ↓
         ┌────────────────────────────────────┐
         │     Security & Quality Checks      │
-        │  - SonarCloud (SAST)              │
-        │  - Trivy (Container Scan)         │
-        │  - Checkov (IaC Security)         │
+        │  - SonarCloud (SAST)               │
+        │  - Trivy (Container Scan)          │
+        │  - Checkov (IaC Security)          │
         └────────────────────────────────────┘
                         ↓
                 Docker Build & Push
